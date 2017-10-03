@@ -1,21 +1,20 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
+
 {
-  nixpkgs.overlays = [( self: super: {
-    pvim = super.vim_configurable.customize {
-      name = "vim";
-      vimrcConfig.customRC = ''
-        set expandtab
-        set tabstop=2
-        set softtabstop=2
-        if filereadable($HOME . "/.vimrc")
-          source ~/.vimrc
-        endif
-      '';
-    };
-  })];
+  nixpkgs.overlays = [ (self: super: {
+      my_vim = super.vim_configurable.override {
+        config.vim.ruby = true;
+        ruby = pkgs.ruby;
+        python = pkgs.python;
+      };
+    })];
+
 
   environment.systemPackages = with pkgs; [
-    pvim
+    (
+        pkgs.my_vim.merge {
+          name = "vim";
+        }
+    )
   ];
-
 }

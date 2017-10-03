@@ -2,19 +2,19 @@
 {
   imports = [
     ./plumelo.nix
-    ../devices/yoga2-pro.nix
+    #../devices/yoga2-pro.nix
     ../modules/development/upwork.nix
   ];
 
-  networking.hostName = "plumone";
+  networking.hostName = "plumfive";
 
   users = {
     defaultUserShell = "/run/current-system/sw/bin/fish";
-    users.iulian = {
+    users.vasy = {
       isNormalUser = true;
       uid = 1000;
       extraGroups = ["wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" ];
-      initialPassword = "iulian";
+      initialPassword = "vasy";
     };
   };
 
@@ -24,12 +24,7 @@
     comical
     lastpass-cli
   ];
-  
-  #swapDevices = [{
-  #  size      = 2048;
-  #  priority  = 5; 
-  #}];
-  
+
   zramSwap = {
     enable    = true;
     priority  = 6;
