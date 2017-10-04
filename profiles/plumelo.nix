@@ -51,5 +51,8 @@
     mpv
     ruby
     xsel
+    ag
+    ack
+    ripgrep
   ];
 }
