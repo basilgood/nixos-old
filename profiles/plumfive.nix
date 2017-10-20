@@ -10,10 +10,11 @@
 
   users = {
     defaultUserShell = "/run/current-system/sw/bin/fish";
+    groups.vasy = { gid = 1000; };
     users.vasy = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" ];
+      extraGroups = ["vasy" "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" ];
       initialPassword = "vasy";
     };
   };

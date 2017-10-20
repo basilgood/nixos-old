@@ -6,7 +6,7 @@
     ../modules/development/lxc.nix
     ../modules/development/lxd/lxd.nix
     ../modules/development/gitkraken.nix
-    ../modules/development/atom.nix
+    #../modules/development/atom.nix
     ../modules/development/vim.nix
     ../modules/development/python/python.nix
     #../modules/development/tilix/tilix.nix
@@ -40,6 +40,7 @@
     git
     slack
     skype
+    atom
     firefox
     chromium
     google-chrome
@@ -50,9 +51,18 @@
     python35Packages.youtube-dl
     mpv
     ruby
+    zlib
     xsel
     ag
     ack
     ripgrep
+    ranger
+    cmake
+    clang
+    gnumake
+    automake
+    autobuild
+    gcc_multi
+    glibc_multi
   ];
 }

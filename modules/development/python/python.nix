@@ -6,5 +6,7 @@
     python35Full
     pythonPackages.virtualenv
     pythonPackages.flake8
+    python27Packages.yamllint
+    libffi
   ];
 }
