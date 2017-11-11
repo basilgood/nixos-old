@@ -67,10 +67,10 @@
       };
     };
   })];
-  
+
   services.dbus.packages = with pkgs; [ gnome2.GConf upwork ];
   environment.systemPackages = with pkgs; [
     gnome2.GConf
     upwork
   ]; 
-} 
+}

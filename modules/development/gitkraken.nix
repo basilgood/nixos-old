@@ -10,14 +10,14 @@
       gnutlsSupport = true;
     };
     gitkraken = super.gitkraken.overrideAttrs(oldAttrs: rec {
-      version = "3.0.2";
+      version = "3.2.1";
       name    = "gitkraken-${version}";
 
       src = super.fetchurl {
         url = "https://release.gitkraken.com/linux/v${version}.deb";
-        sha256 = "0ryzgarw1f4m6xgp1f1dc7m3h3rm9hyaj7r21091m2xkh8b3f9kn";
+        sha256 = "1acr4rpv01abalnycm5kcw7k6id34spnrm2yysgsi2m9gy057a4x";
       };
-    
+
       libPath = super.stdenv.lib.makeLibraryPath [
         super.stdenv.cc.cc.lib
         self.gkCurl
@@ -54,7 +54,7 @@
         super.gnome2.GConf
         super.libgnome_keyring
       ];
-      
+
       buildInputs = [ super.dpkg ];
       unpackPhase = "true";
       buildCommand = ''
@@ -70,13 +70,13 @@
           patchelf --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" "$file" || true
           patchelf --set-rpath ${libPath}:$out/share/gitkraken $file || true
         done
-        
-        find $out/share/gitkraken -name "*.node" -exec patchelf --set-rpath "${libPath}:$out/share/gitkraken" {} \; 
-        
+
+        find $out/share/gitkraken -name "*.node" -exec patchelf --set-rpath "${libPath}:$out/share/gitkraken" {} \;
+
         rm $out/bin/gitkraken
         ln -s $out/share/gitkraken/gitkraken $out/bin/gitkraken
       '';
-      }); 
+      });
    })];
 
   environment.systemPackages = with pkgs; [

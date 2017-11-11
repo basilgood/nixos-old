@@ -4,9 +4,12 @@
     ./plumelo.nix
     #../devices/yoga2-pro.nix
     ../modules/development/upwork.nix
+    ../modules/desktops/i3/index.nix
   ];
 
   networking.hostName = "plumfive";
+  networking.networkmanager.enable = true;
+  networking.wireless.enable = false;
 
   users = {
     defaultUserShell = "/run/current-system/sw/bin/fish";
@@ -14,7 +17,7 @@
     users.vasy = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["vasy" "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" ];
+      extraGroups = ["vasy" "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" "sway" ];
       initialPassword = "vasy";
     };
   };

@@ -1,16 +1,14 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ../modules/desktops/gnome.nix
+#    ../modules/desktops/gnome.nix
     ../modules/development/vagrant.nix
     ../modules/development/lxc.nix
     ../modules/development/lxd/lxd.nix
     ../modules/development/gitkraken.nix
-    #../modules/development/atom.nix
     ../modules/development/vim.nix
     ../modules/development/python/python.nix
-    #../modules/development/tilix/tilix.nix
-    #../modules/desktops/sway.nix
+    ../modules/development/tilix.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -30,7 +28,7 @@
   programs = {
     tmux.enable = true;
     fish.enable = true;
-    java.enable = true; 
+    java.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -38,17 +36,23 @@
     p7zip
     wget
     git
+    gitAndTools.tig
     slack
     skype
+    vifm
     atom
+    neovim
+    python27Packages.neovim
+    python36Packages.neovim
     firefox
-    chromium
     google-chrome
     lm_sensors
     nodejs
     libreoffice-fresh
     python35Packages.mps-youtube
     python35Packages.youtube-dl
+    glibc
+    glibc_multi
     mpv
     ruby
     zlib
@@ -64,5 +68,20 @@
     autobuild
     gcc_multi
     glibc_multi
+    libcxx
+    libstdcxx5
+    glxinfo
   ];
+  fonts = {
+      enableFontDir = true;
+
+      fonts = with pkgs; [
+        dejavu_fonts
+        font-awesome-ttf
+        nerdfonts
+        source-code-pro
+      ];
+
+      fontconfig.defaultFonts.monospace = [ "DejaVu Sans Mono" ];
+    };
 }
