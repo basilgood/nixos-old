@@ -17,12 +17,10 @@ general {
         color_degraded = "${accent}"
 }
 
-order += "ipv6"
-order += "disk /"
+order += "load"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
-order += "load"
 order += "tztime local"
 
 wireless _first_ {

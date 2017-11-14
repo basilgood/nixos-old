@@ -4,7 +4,7 @@
     ./plumelo.nix
     #../devices/yoga2-pro.nix
     ../modules/development/upwork.nix
-    ../modules/desktops/i3/index.nix
+    ../modules/desktops/i3wm/configuration.nix
   ];
 
   networking.hostName = "plumfive";
@@ -17,7 +17,7 @@
     users.vasy = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["vasy" "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" "sway" ];
+      extraGroups = ["vasy" "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" ];
       initialPassword = "vasy";
     };
   };
