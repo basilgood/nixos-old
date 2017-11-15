@@ -4,7 +4,8 @@
     ./plumelo.nix
     #../devices/yoga2-pro.nix
     ../modules/development/upwork.nix
-    ../modules/desktops/i3wm/configuration.nix
+    #../modules/desktops/i3wm/configuration.nix
+    ../modules/desktops/i3-gaps/i3.nix
   ];
 
   networking.hostName = "plumfive";
