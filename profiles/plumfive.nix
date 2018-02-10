@@ -5,7 +5,7 @@
     #../devices/yoga2-pro.nix
     ../modules/development/upwork.nix
     #../modules/desktops/i3wm/configuration.nix
-    ../modules/desktops/i3-gaps/i3.nix
+    #../modules/desktops/i3-gaps/i3.nix
   ];
 
   networking.hostName = "plumfive";
@@ -26,12 +26,11 @@
   networking.firewall.allowedTCPPorts = [9988];
   environment.systemPackages = with pkgs; [
     transmission_gtk
-    comical
     lastpass-cli
   ];
 
-  zramSwap = {
-    enable    = true;
-    priority  = 6;
-  };
+  #zramSwap = {
+  #  enable    = true;
+  #  priority  = 6;
+  #};
 }
