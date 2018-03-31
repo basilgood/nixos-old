@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ dnsmasq ];
-  services.dnsmasq.enable = true;
-  services.dnsmasq.extraConfig =
+  services.dnsmasq = {
+    enable = true;
+    extraConfig =
     if config.services.dnsmasq.enable then
       ''
       bind-interfaces
@@ -14,8 +14,9 @@
       ''
     else
       "";
-
+  };
   networking.networkmanager.insertNameservers = ["127.0.0.1"];
+
   virtualisation = {
     lxc = {
       enable = true;
