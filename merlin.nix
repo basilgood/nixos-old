@@ -36,18 +36,22 @@
   services.xserver = {
     enable = true;
 
-    displayManager.slim = {
-	enable = true;
+    displayManager.sddm = {
+      enable = true;
     };
     desktopManager.xterm.enable = false;
-    desktopManager.default = "none";
-    windowManager = {
-      i3 = {
-        enable = true;
-        package = pkgs.i3-gaps;
-      };
-      default = "i3";
-    };
+    desktopManager.lxqt.enable = true;
+    # desktopManager.default = "none";
+    # windowManager = {
+    #   i3 = {
+    #     enable = true;
+    #     package = pkgs.i3-gaps;
+    #   };
+    #   openbox = {
+    #     enable = true;
+    #   };
+    #   default = "i3";
+    # };
    };
 
   services.compton = {
