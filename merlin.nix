@@ -36,36 +36,12 @@
   services.xserver = {
     enable = true;
 
-    displayManager.sddm = {
-      enable = true;
-    };
+    displayManager.sddm.enable = true;
     desktopManager.xterm.enable = false;
-    desktopManager.lxqt.enable = true;
-    # desktopManager.default = "none";
-    # windowManager = {
-    #   i3 = {
-    #     enable = true;
-    #     package = pkgs.i3-gaps;
-    #   };
-    #   openbox = {
-    #     enable = true;
-    #   };
-    #   default = "i3";
-    # };
+    desktopManager.plasma5.enable = true;
+    layout = "us";
+    xkbOptions = "eurosign:e";
    };
-
-  services.compton = {
-    enable = true;
-    fade = true;
-    fadeDelta = 3;
-
-    extraOptions = ''
-	blur-kern = "11x11gaussian";
-    '';
-  };
-
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
 
   users = {
     defaultUserShell = "/run/current-system/sw/bin/fish";
@@ -73,7 +49,7 @@
     users.vasy = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = ["vasy" "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" ];
+      extraGroups = ["vasy" "wheel" "disk" "audio" "video" "networkmanager" "systemd-journal" "lxd" "docker"];
       initialPassword = "vasy";
     };
   };
