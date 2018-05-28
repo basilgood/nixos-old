@@ -6,7 +6,5 @@ let
 in {
   imports = [
     ./merlin.nix
-    #./plumelo.nix
-   # ../modules/services/X11/gnome3.nix 
   ];
 }
